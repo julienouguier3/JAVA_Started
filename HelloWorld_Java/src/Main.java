@@ -1,11 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        int cartons = 34;
-        final int TRUCKLOAD = 9;
+        int cartons = 34; //le nombre total de cartons
+        final int TRUCKLOAD = 9; //la contenance de chaque camion
 
         while (cartons > 0) {
-            System.out.println("Un voyage de " + cartons + " cartons");
-            cartons -= TRUCKLOAD;
+            if (cartons < TRUCKLOAD) {
+                System.out.println("Un voyage de " + cartons + " cartons");
+                cartons -= cartons;
+            } else {
+                System.out.println("Un voyage de " + TRUCKLOAD + " cartons");
+                cartons -= TRUCKLOAD;
+
+            }
+
         }
 
 
