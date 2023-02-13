@@ -2,23 +2,25 @@ package Game;
 
 /**
  * The attributes of the object are defined
+ * private = making attribute only accessible within the declared class
  */
 public class Perso {
 
-      private  String type;
-      private  String offensive;
-      private  String defensive;
-      private  String name;
-      private  int levelLife;
-      private  int attackForce;
+    private String type;
+    private String offensive;
+    private String defensive;
+    private String name;
+    private int levelLife;
+    private int attackForce;
 
-    /**Constructor
-     * The characteristics of the object's attributes are defined
+    /**
+     * defines a constructor for a class called "Personal"
+     * initializes the "name" and "offensive" properties of the created object
      */
-    public Perso (){
+    public Perso() {
 //        this("Einar","warrior");
-        this.name ="Einar";
-        this.type ="warrior";
+        this.name = "Einar";
+        this.type = "warrior";
         this.offensive = "weapon";
         this.defensive = "shield";
         this.levelLife = 10;
@@ -28,11 +30,10 @@ public class Perso {
     }
 
     /**
-     * Constructor
-     * @param name
-     * @param type
+     * @param name used to initialize the corresponding properties of the created object
+     *"this" is used to refer to the object being created.
      */
-    public Perso (String name, String type){
+    public Perso(String name, String type) {
         this.name = name;
         this.type = type;
         this.offensive = "weapon";
@@ -86,11 +87,11 @@ public class Perso {
         return defensive;
     }
 
-    public void setDefensive(String defensive) {
+    public void setDefensive() {
         this.defensive = defensive;
     }
 
-    public void setOffensive(String offensive) {
+    public void setOffensive() {
         this.offensive = offensive;
     }
 
@@ -98,15 +99,19 @@ public class Perso {
     /*
    The toString() method returns the String representation of the object.
      */
-    public String toString(){
-        return "//------------Personage------------//\n " +
-                "(\\_/)\n" +
-                "( •,•)\n" +
-                "(\")_(\") " +
-                "\n[ Name : " + this.name + " ]" + "\n[ Type : " + this.type + " ]" + "\n[ OffensiveEquipment : " + this.offensive + " ]"+ "\n[ DefensiveEquipment : " + this.defensive
-                + " ]"+ "\n[ levelLife : " + this.levelLife + " ]" + "\n[ AttackForce : " + this.attackForce + " ]";
+    public String toString() {
+        String resultat = "\n//------------Personage------------//\n";
+        resultat += "(\\_/)\n";
+        resultat += "( •,•)\n";
+        resultat += "(\")_(\") ";
+        resultat += "\n[ Name : " + this.name + " ]";
+        resultat += "\n[ Type : " + this.type + " ]";
+        resultat += "\n[ Offensive : " + this.offensive + " ]";
+        resultat += "\n[ Defensive : " + this.defensive + " ]";
+        resultat += "\n[ Level Life : " + this.levelLife + " ]";
+        resultat += "\n[ Attack Force : " + this.attackForce + " ]";
+        return resultat;
+
+
     }
-
-
 }
-

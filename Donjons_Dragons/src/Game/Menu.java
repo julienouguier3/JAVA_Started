@@ -4,32 +4,66 @@ import java.util.Scanner;
 
 
 public class Menu {
-    static Scanner clavier = new Scanner(System.in);
+    protected Scanner clavier;//Instancier un lecteur
 
-    public void init() {
-        //
-        String namePerso = answerUser(" => Enter your name : ");
-        String typePerso = answerUser(" => Enter your type : ");
-        Perso player = new Perso(namePerso, typePerso); //creation of the character
+    private Game game;
 
-        System.out.print(player);//display method "toString" of the class Perso
-
-        //Exit
-        clavier.close();
+    public Menu() {
+        this.clavier = new Scanner(System.in);
+        // New Game
+        Game game = new Game();
 
     }
 
+    public void init() {
+        //
+        String namePlayer = answerUser(" => Enter your name : ");
+        String typePlayer = answerUser(" => Enter your type : ");
+        Perso player = new Perso(namePlayer, typePlayer); //creation of the character
+        // set game player
+        player.setName(namePlayer);
+        player.setType(typePlayer);
+        player.setOffensive();
+        player.setDefensive();
+        //start game
+        int start = startGame();
+
+
+
+
+        System.out.print(player);//display method "toString" of the class Perso
+    }
+
+
     /**
-     * user's message
-     * @param message
-     * @return
+     * @param message define the message to display
+     * @return The message to reply to in the user
      */
-    private String answerUser(String message ) {
+    private String answerUser(String message) {
         System.out.println(message);
         return clavier.nextLine();
     }
 
-    public String toString(){
-        return "//------------Menu------------//";
+    private int startGame() {
+        System.out.println("Start (1) or Exit (2)");
+        int choice = clavier.nextInt();
+
+        if (choice == 1) {
+            System.out.println("Start");
+            // game.start
+        } else if (choice == 2) {
+            System.out.println("Exit");
+            return 0;
+        } else {
+            System.out.println("Not valid");
+        }
+        return choice;
+
+    }
+
+    public String toString() {
+
+        return "\n//------------Menu------------//\n"
+                + "\n";
     }
 }
