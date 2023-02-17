@@ -1,4 +1,5 @@
 import exceptions.PersonnageHorsPlateauException;
+import gameboard.Case;
 import personnages.Player;
 
 public class Game {
@@ -10,10 +11,14 @@ public class Game {
 
     private int playerPosition;
 
+
+
+
     public Game() {
         this.player = null;
         this.playerPosition = 0;
         this.dice = new Dice();
+
     }
 
     public Player getPlayer() {
