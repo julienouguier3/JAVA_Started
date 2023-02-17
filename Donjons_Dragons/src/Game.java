@@ -1,3 +1,6 @@
+import exceptions.PersonnageHorsPlateauException;
+import personnages.Player;
+
 public class Game {
 
     public static final int NB_CASE = 64;

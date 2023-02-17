@@ -8,9 +8,6 @@ import java.util.Objects;
  */
 public abstract class DefensiveEquipment {
 
-    /**
-     *
-     */
     private final String name;
 
     /**

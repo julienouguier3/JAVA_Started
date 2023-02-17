@@ -1,3 +1,5 @@
+package offensiveEquipment;
+
 import equipment.OffensiveEquipment;
 
 public class Weapon extends OffensiveEquipment{

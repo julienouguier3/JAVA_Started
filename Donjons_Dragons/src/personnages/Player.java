@@ -1,5 +1,10 @@
+package personnages;
+
+import defensiveEquipment.Shield;
 import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
+import offensiveEquipment.Weapon;
+
 
 import java.util.Objects;
 

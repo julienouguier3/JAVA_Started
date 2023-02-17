@@ -1,8 +1,13 @@
+import defensiveEquipment.Philter;
+import defensiveEquipment.Shield;
 import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
+import exceptions.PersonnageHorsPlateauException;
+import offensiveEquipment.Spell;
+import offensiveEquipment.Weapon;
+import personnages.Player;
 
 import java.util.Scanner;
-import java.util.logging.Filter;
 
 public class Menu {
     private Game game;
@@ -46,7 +51,7 @@ public class Menu {
                     if (this.game.hasPlayer()) {
                         // if so we remove the currently defined player
                         this.game.unsetPlayer();
-                        //this.game.setPlayer(null);
+
                     }
                 }
                 case 3 -> {
@@ -105,9 +110,8 @@ public class Menu {
         boolean correct;
         Player player = null;
         do {
-            System.out.println("Choose class");
-            System.out.println(" 1 - Warrior");
-            System.out.println(" 2 - Wizzard");
+            System.out.println("Choose class");           System.out.println(" 1 - Warrior");
+            System.out.println(" 2 - Wizard");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -115,13 +119,13 @@ public class Menu {
                     correct = true;
                     DefensiveEquipment armor = new Shield("Training armor", 3);
                     OffensiveEquipment sword = new Weapon("Training sword", 1);
-                    player = new Warrior(name, 10, 10, "warrior", armor, sword);
+                    player = new Player(name, 10, 10, "warrior", armor, sword) {
+                    };
                 }
                 case 2 -> {
-                    correct = true;
-                    DefensiveEquipment armor = new Philter("Cloak", 1);
+                    correct = true;                   DefensiveEquipment armor = new Philter("Cloak", 1);
                     OffensiveEquipment spell = new Spell("Spark", 3);
-                    player = new Wizard(name, 6, 15, "wizzard", armor, spell);
+                    player = new Player(name, 6, 15, "wizard", armor, spell){};
                 }
                 default -> correct = false;
             }
@@ -130,4 +134,12 @@ public class Menu {
         return player;
     }
 
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "game=" + game +
+                ", scanner=" + scanner +
+                ", exit=" + exit +
+                '}';
+    }
 }

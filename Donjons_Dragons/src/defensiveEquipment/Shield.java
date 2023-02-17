@@ -1,8 +1,10 @@
+package defensiveEquipment;
+
 import equipment.DefensiveEquipment;
 
-public class Philter extends DefensiveEquipment {
+public class Shield extends DefensiveEquipment {
 
-    public Philter(String name, int level) {
+    public Shield(String name, int level){
         //Call the constructor of the parent class DefensiveEquipment
         super(name, level);
     }
