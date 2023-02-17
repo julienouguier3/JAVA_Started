@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"defensiveEquipment"},{"l":"equipment"},{"l":"exceptions"},{"l":"gameboard"},{"l":"offensiveEquipment"},{"l":"personnages"},{"l":"Test"}];updateSearchResults();
