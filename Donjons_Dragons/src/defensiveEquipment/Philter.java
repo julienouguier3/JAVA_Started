@@ -1,7 +1,7 @@
 package defensiveEquipment;
 
 import equipment.DefensiveEquipment;
-import gameboard.Case;
+import gameboard.cases.Case;
 
 public class Philter extends DefensiveEquipment implements Case {
 

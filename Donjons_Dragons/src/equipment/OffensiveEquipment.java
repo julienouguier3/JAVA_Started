@@ -34,10 +34,9 @@ public abstract class OffensiveEquipment {
 
     @Override
     public String toString() {
-        return "equipment.OffensiveEquipment{" +
-                "name='" + name + '\'' +
-                ", defenceLevel=" + defenceLevel +
-                '}';
+        return name + '\'' +
+                ", defenceLevel => " + defenceLevel;
+
     }
 
     @Override

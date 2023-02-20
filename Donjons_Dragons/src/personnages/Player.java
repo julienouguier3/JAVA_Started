@@ -6,6 +6,7 @@ import equipment.OffensiveEquipment;
 import offensiveEquipment.Weapon;
 
 
+import java.awt.*;
 import java.util.Objects;
 
 /**
@@ -18,25 +19,27 @@ public abstract class Player {
      * Name of the player
      */
     private String name;
+    private String archetype;
     private int life;
     private int attack;
-    private String archetype;
 
     private DefensiveEquipment defensiveEquipment;
 
     private OffensiveEquipment offensiveEquipment;
+
 
     /**
      * Create a new player using default parameters
      */
     public Player() {
         this.name = "Gandalf";
+        this.archetype = " wizzard";
         this.life = 6;
         this.attack = 15;
-        this.archetype = " wizzard";
         //Instanciate Child Class
         this.defensiveEquipment = new Shield("Cloak",1);
         this.offensiveEquipment =  new Weapon("Staff",1);
+
     }
 
     /**
@@ -51,13 +54,18 @@ public abstract class Player {
      */
     public Player(String name, int life, int attack, String type, DefensiveEquipment defensiveEquipment, OffensiveEquipment offensiveEquipment) {
         this.name = name;
+        this.archetype = type;
         this.life = life;
         this.attack = attack;
-        this.archetype = type;
         this.defensiveEquipment = defensiveEquipment;
         this.offensiveEquipment = offensiveEquipment;
+
     }
 
+    /**
+     * getter and setter
+     * @return
+     */
     public String getName() {
         return name;
     }
@@ -106,15 +114,17 @@ public abstract class Player {
         this.offensiveEquipment = offensiveEquipment;
     }
 
+
+
     @Override
     public String toString() {
         return "\n//------ Player ------//  " +
-                "\n[ Name :" + name + " ]" +
-                "\n[ Life :" + life + " ]" +
-                "\n[ Attack :" + attack + " ]"+
-                "\n[ Archetype :" + archetype + " ]" +
-                "\n[ Defensive Equipment :" + defensiveEquipment + " ]"+
-                "\n[ Offensive Equipment :" + offensiveEquipment + " ]";
+                "\n[ Name : " + name + " ]" +
+                "\n[ Life : " + life + " ]" +
+                "\n[ Attack : " + attack + " ]"+
+                "\n[ Archetype : " + archetype + " ]" +
+                "\n[ Defensive Equipment : " + defensiveEquipment + " ]"+
+                "\n[ Offensive Equipment : " + offensiveEquipment + " ]\n";
     }
 
     @Override

@@ -1,4 +1,4 @@
-package gameboard;
+package gameboard.cases;
 
 import offensiveEquipment.Weapon;
 

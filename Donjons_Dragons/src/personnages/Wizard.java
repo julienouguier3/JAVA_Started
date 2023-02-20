@@ -2,7 +2,6 @@ package personnages;
 
 import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
-import gameboard.Case;
 
 public class Wizard extends Player  {
 

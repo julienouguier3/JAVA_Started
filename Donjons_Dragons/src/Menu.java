@@ -3,6 +3,7 @@ import defensiveEquipment.Shield;
 import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
 import exceptions.PersonnageHorsPlateauException;
+import gameboard.cases.CasesList;
 import offensiveEquipment.Spell;
 import offensiveEquipment.Weapon;
 import personnages.Player;
@@ -12,12 +13,15 @@ import java.util.Scanner;
 public class Menu {
     private Game game;
 
+    private final CasesList cases;
     private final Scanner scanner;
+
     private boolean exit;
 
     public Menu(Game game, Scanner scanner) {
         this.game = game;
         this.scanner = scanner;
+        this.cases = new CasesList();
         this.exit = false;
     }
 
@@ -57,6 +61,10 @@ public class Menu {
                 case 3 -> {
                     if (this.game.hasPlayer()) {
                         System.out.println(this.game.getPlayer().toString());
+                        /*
+                        display the toString method of Menu
+                         */
+//                        System.out.println(this.toString());
                     }
                 }
                 case 4 -> {
@@ -84,6 +92,7 @@ public class Menu {
         }
 
         // the game is finish we create a new one and return to the main menu
+        System.out.println("End Game ...");
         this.game = new Game();
     }
 
@@ -110,7 +119,8 @@ public class Menu {
         boolean correct;
         Player player = null;
         do {
-            System.out.println("Choose class");           System.out.println(" 1 - Warrior");
+            System.out.println("Choose class");
+            System.out.println(" 1 - Warrior");
             System.out.println(" 2 - Wizard");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -123,9 +133,11 @@ public class Menu {
                     };
                 }
                 case 2 -> {
-                    correct = true;                   DefensiveEquipment armor = new Philter("Cloak", 1);
+                    correct = true;
+                    DefensiveEquipment armor = new Philter("Cloak", 1);
                     OffensiveEquipment spell = new Spell("Spark", 3);
-                    player = new Player(name, 6, 15, "wizard", armor, spell){};
+                    player = new Player(name, 6, 15, "wizard", armor, spell) {
+                    };
                 }
                 default -> correct = false;
             }
@@ -136,10 +148,28 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "Menu{" +
-                "game=" + game +
-                ", scanner=" + scanner +
-                ", exit=" + exit +
-                '}';
+        return "\n//------ Menu ------//" +
+                ",\nexit => " + exit;
+
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public boolean isExit() {
+        return exit;
+    }
+
+    public void setExit(boolean exit) {
+        this.exit = exit;
     }
 }

@@ -30,10 +30,9 @@ public abstract class DefensiveEquipment {
 
     @Override
     public String toString() {
-        return "DefensiveEquipment{" +
-                "name='" + name + '\'' +
-                ", level=" + level +
-                '}';
+        return name + '\'' +
+                        ", level => " + level;
+
     }
 
     @Override

@@ -1,7 +1,7 @@
 package offensiveEquipment;
 
 import equipment.OffensiveEquipment;
-import gameboard.Case;
+import gameboard.cases.Case;
 
 public class Weapon extends OffensiveEquipment implements Case {
 
@@ -11,6 +11,7 @@ public class Weapon extends OffensiveEquipment implements Case {
         super(name, defenceLevel);
 
     }
+
 
 
 }

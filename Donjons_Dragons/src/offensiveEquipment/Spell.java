@@ -1,7 +1,7 @@
 package offensiveEquipment;
 
 import equipment.OffensiveEquipment;
-import gameboard.Case;
+import gameboard.cases.Case;
 
 public class Spell extends OffensiveEquipment implements Case {
 

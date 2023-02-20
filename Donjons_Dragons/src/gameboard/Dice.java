@@ -1,3 +1,5 @@
+package gameboard;
+
 import java.util.Random;
 
 public class Dice {
