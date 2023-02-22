@@ -19,39 +19,30 @@ public class CasesList {
      */
     public CasesList() {
         this.nbrCases = 64;
-        list.add(new Dragon(4, 15));
-        list.add(new Witch(2, 9));
-        list.add(new Goblin(1, 6));
-        list.add(new Sword("Sword", 5));
-        list.add(new Sledgehammer("Sledgehammer", 3));
-        list.add(new magicLightning("magicLightning", 2));
-        list.add(new SmallPotion("SmallPotion", 2));
-        list.add(new BigPotion("BigPotion", 5));
-        list.add(new Fireball("Fireball", 7));
-        list.add(new EmptyCase("empty",));
+
 
         for (int i = 0; i < nbrCases; i++) {
             switch (i) {
                 case 1, 3, 13, 31 -> {
                     list.add(new Sword("Sword", 5));
                 }
-                case 15, 36, 54 -> {
+                case 15, 24, 36, 54 -> {
                     list.add(new Witch(2, 9));
 
                 }
-                case 38, 62 -> {
+                case 38, 43, 62 -> {
                     list.add(new Dragon(4, 15));
                 }
-                case 2, 14, 28 -> {
+                case 2, 14, 28, 41-> {
                     list.add(new Fireball("Fireball", 7));
                 }
-                case 6, 32, 46, 61 -> {
+                case 6, 32, 46,52, 61-> {
                     list.add(new SmallPotion("SmallPotion", 2));
                 }
-                case 4, 12, 25, 60 -> {
+                case 4, 12, 25, 49, 60 -> {
                     list.add(new BigPotion("BigPotion", 5));
                 }
-                case 5, 19, 30, 47 -> {
+                case 5, 19, 26,30, 47 -> {
                     list.add(new Sledgehammer("Sledgehammer", 3));
 
                 }
@@ -63,7 +54,7 @@ public class CasesList {
                     list.add(new magicLightning("magicLightning", 2));
 
                 }
-                default -> list.add(new EmptyCase());
+                default -> list.add(new EmptyCase("{----}"));
 
             }
         }
@@ -85,7 +76,7 @@ public class CasesList {
 
     @Override
     public String toString() {
-        return "Case "
-                ;
+        return "";
+
     }
 }

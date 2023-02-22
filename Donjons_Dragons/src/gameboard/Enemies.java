@@ -1,8 +1,9 @@
 package gameboard;
 
 import gameboard.cases.Case;
+import personnages.Player;
 
-abstract public class Enemies implements Case {
+abstract public class Enemies  {
 
  private int attack;
  private int life;
@@ -11,6 +12,8 @@ abstract public class Enemies implements Case {
      this.attack = attack;
      this.life = life;
  }
+
+
 
     /**
      * getter and setter
@@ -31,4 +34,8 @@ abstract public class Enemies implements Case {
     public void setLife(int life) {
         this.life = life;
     }
+
+
+
 }
+

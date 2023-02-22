@@ -18,11 +18,13 @@ public class Menu {
 
     private boolean exit;
 
+
     public Menu(Game game, Scanner scanner) {
         this.game = game;
         this.scanner = scanner;
         this.cases = new CasesList();
         this.exit = false;
+
     }
 
     public void run() {
@@ -92,7 +94,7 @@ public class Menu {
         }
 
         // the game is finish we create a new one and return to the main menu
-        System.out.println("End Game ...");
+        System.out.println("End Game ...\n");
         this.game = new Game();
     }
 
@@ -113,13 +115,15 @@ public class Menu {
      * @return newly created player
      */
     private Player createPlayer() {
+        System.out.println(this.toString());
         System.out.println("Bonjour ! ");
         System.out.println("Type name :");
         String name = this.scanner.nextLine();
         boolean correct;
         Player player = null;
+
         do {
-            System.out.println("Choose class");
+            System.out.println("<===== Choose class =====>");
             System.out.println(" 1 - Warrior");
             System.out.println(" 2 - Wizard");
             int choice = scanner.nextInt();
@@ -148,8 +152,8 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "\n//------ Menu ------//" +
-                ",\nexit => " + exit;
+        return "\n============= Menu =============  ";
+
 
     }
 

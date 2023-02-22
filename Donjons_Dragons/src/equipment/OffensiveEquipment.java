@@ -16,26 +16,26 @@ public abstract class OffensiveEquipment {
     /**
      * Protection level provided
      */
-    private final int defenceLevel;
+    private final int attackLevel;
 
 
-    public OffensiveEquipment(String name, int defenceLevel) {
+    public OffensiveEquipment(String name, int attackLevel) {
         this.name = name;
-        this.defenceLevel = defenceLevel;
+        this.attackLevel = attackLevel;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getDefenceLevel() {
-        return defenceLevel;
+    public int getAttackLevel() {
+        return attackLevel;
     }
 
     @Override
     public String toString() {
-        return name + '\'' +
-                ", defenceLevel => " + defenceLevel;
+        return name +
+                ", attackLevel == " + attackLevel;
 
     }
 
@@ -44,11 +44,11 @@ public abstract class OffensiveEquipment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OffensiveEquipment that = (OffensiveEquipment) o;
-        return defenceLevel == that.defenceLevel && Objects.equals(name, that.name);
+        return attackLevel == that.attackLevel && Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, defenceLevel);
+        return Objects.hash(name, attackLevel);
     }
 }

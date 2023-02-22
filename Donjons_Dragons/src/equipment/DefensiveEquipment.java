@@ -30,8 +30,8 @@ public abstract class DefensiveEquipment {
 
     @Override
     public String toString() {
-        return name + '\'' +
-                        ", level => " + level;
+        return name +
+                ", level == " + level;
 
     }
 

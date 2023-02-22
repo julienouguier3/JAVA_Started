@@ -2,8 +2,9 @@ package offensiveEquipment;
 
 import equipment.OffensiveEquipment;
 import gameboard.cases.Case;
+import personnages.Player;
 
-public class Weapon extends OffensiveEquipment implements Case {
+public class Weapon extends OffensiveEquipment {
 
 
     public Weapon(String name, int defenceLevel) {
@@ -11,6 +12,8 @@ public class Weapon extends OffensiveEquipment implements Case {
         super(name, defenceLevel);
 
     }
+
+
 
 
 

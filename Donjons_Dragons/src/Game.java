@@ -4,6 +4,8 @@ import gameboard.cases.CasesList;
 import gameboard.Dice;
 import personnages.Player;
 
+import java.util.Scanner;
+
 public class Game {
 
     public static final int NB_CASE = 64;
@@ -13,32 +15,49 @@ public class Game {
 
     private int playerPosition;
     private CasesList gameboard;
+    private final Scanner scanner;
+    private int number;
 
     public Game() {
         this.player = null;
         this.playerPosition = 0;
         this.dice = new Dice();
         this.gameboard = new CasesList();
+        this.scanner = new Scanner(System.in);
+        this.number = 1;
 
     }
 
     /**
      * playTurn throw the dice and move of numbers of cases
+     *
      * @throws PersonnageHorsPlateauException
      */
     public void playTurn() throws PersonnageHorsPlateauException {
 
+        System.out.println("<===== Round " + number++ + " =====>");
         this.isFinished();
-//        System.out.println("You launch the dice....");
+        System.out.println(this.toString());
+        System.out.println(" You launch the dice [°]");
         int moves = this.dice.throwDice();
         // and advance is player accordingly
-        System.out.printf("You move %d cases forward...", moves);
+        infoPlayer();
+        System.out.printf(" You move %d cases forward", moves);
         System.out.println();
         this.playerPosition += moves;
         System.out.printf(this.toString());
-        Case getList = gameboard.getList().get(playerPosition);
-        System.out.println(getList);
+        Case cases = gameboard.getList().get(playerPosition);
+        cases.startAction(this.player);
 
+    }
+
+
+    public void infoPlayer() {
+        if (scanner.nextLine().equals("h")) {
+            System.out.println(getPlayer());
+        } else {
+            scanner.nextLine();
+        }
     }
 
     public boolean hasPlayer() {
@@ -79,6 +98,6 @@ public class Game {
 
     @Override
     public String toString() {
-        return "\nPlayer's position : " + playerPosition +"/"+NB_CASE+ "\n" + getGameboard();
+        return "\n---- Player's position : [" + playerPosition + "/" + NB_CASE + " ] ----"+"\n" + getGameboard();
     }
 }
