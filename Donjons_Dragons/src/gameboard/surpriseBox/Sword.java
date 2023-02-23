@@ -12,6 +12,20 @@ public class Sword extends Weapon implements Case {
 
     @Override
     public void startAction(Player player) {
-        player.increasesAttack(5);
+        System.out.println("================ " + this.getName() + " (+5) =========================\n"
+                + "-> current equipment : " + player.getOffensiveEquipment()
+                + "\n" + this.toString()
+        );
+        addEquipment(player);
+
+    }
+
+    @Override
+    public String toString() {
+        return "-> proposed weapon : "
+                + super.toString()
+
+                ;
+
     }
 }

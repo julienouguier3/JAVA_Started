@@ -3,6 +3,9 @@ package personnages;
 import defensiveEquipment.Shield;
 import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
+import gameboard.cases.Case;
+import gameboard.cases.CasesList;
+import gameboard.enemies.Enemies;
 import offensiveEquipment.Weapon;
 
 
@@ -13,7 +16,7 @@ import java.util.Objects;
  * Model for a player
  * Hold details information about the player
  */
-public abstract class Player {
+abstract public class Player {
 
     /**
      * Name of the player
@@ -33,9 +36,9 @@ public abstract class Player {
      */
     public Player() {
         this.name = "Gandalf";
-        this.archetype = " wizzard";
+        this.archetype = " wizard";
         this.life = 6;
-        this.attack = 15;
+        this.attack = 1;
         //Instance Child Class Shield and Weapon
         this.defensiveEquipment = new Shield("Cloak", 1);
         this.offensiveEquipment = new Weapon("Staff", 1);
@@ -63,22 +66,22 @@ public abstract class Player {
     }
 
     /**
-     * Adds life to the player
+     * Adds life to the player (potions)
      *
      * @param life determine the number to add
      */
     public void addLife(int life) {
-        System.out.println("Life before : " + this.life);
+        System.out.println("-> life before : " + this.life);
         this.life += life;
-        System.out.println("Life after : " + this.life);
+        System.out.println("-> life after : " + this.life);
 
     }
 
-    public void increasesAttack(int attack) {
-        System.out.println("Attack after : " + this.attack);
-        this.attack += attack;
-        System.out.println("Attack before : " + this.attack);
+    public void attack(Enemies enemies) {
+        enemies.setLife(this.getAttack()-enemies.getLife());
+
     }
+
 
     /**
      * getter and setter
@@ -136,14 +139,14 @@ public abstract class Player {
 
     @Override
     public String toString() {
-        return "\n======== Player =======================================  " +
+        return "\n======== Player ====================================================  " +
                 "\n[ Name : " + name + " ]" +
                 "\n[ Life : " + life + " ]" +
                 "\n[ Attack : " + attack + " ]" +
                 "\n[ Archetype : " + archetype + " ]" +
                 "\n[ Defensive Equipment : " + defensiveEquipment + " ]" +
-                "\n[ Offensive Equipment : " + offensiveEquipment + " ]\n"+
-                "========================================================";
+                "\n[ Offensive Equipment : " + offensiveEquipment + " ]" + "\n" +
+                "=====================================================================";
     }
 
     @Override

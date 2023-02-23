@@ -8,18 +8,19 @@ public class EmptyCase implements Case {
     private final String empty;
 
 
-    public EmptyCase(String empty) {
-        this.empty = empty;
+    public EmptyCase() {
+        this.empty = " (づ｡◕‿‿◕｡)づ ";
 
-    }
-
-    @Override
-    public String toString() {
-        return empty;
     }
 
     @Override
     public void startAction(Player player) {
-        System.out.println(this.empty);
+        System.out.println(this.toString());
+    }
+
+    @Override
+    public String toString() {
+        return "EmptyCase : " +
+                empty;
     }
 }

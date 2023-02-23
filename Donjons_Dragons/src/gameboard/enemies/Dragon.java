@@ -1,6 +1,5 @@
 package gameboard.enemies;
 
-import gameboard.Enemies;
 import gameboard.cases.Case;
 import personnages.Player;
 
@@ -12,14 +11,18 @@ public class Dragon extends Enemies implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("<===== Player =============================>\n" + "life : "
-                + player.getLife() + "  attack : "
-                + player.getAttack()
+        System.out.println("||============ Player ==============||         \n"
+                + "||-> life : " + player.getLife()
+                + " -> attack : " + player.getAttack() + "                  || "
+                +this
         );
+        startFighting(player);
     }
 
     @Override
     public String toString() {
-        return "<========== Dragon ==========>\n" + "life : " + getLife() + "  attack : " + getAttack();
+        return "\n||============ Dragon ==============||\n"
+                + super.toString()
+                ;
     }
 }

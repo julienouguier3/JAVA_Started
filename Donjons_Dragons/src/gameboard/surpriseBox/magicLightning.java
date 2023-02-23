@@ -11,12 +11,14 @@ public class magicLightning extends Spell implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("<===== Player =====>\n" + "Defensive equipment : " + player.getDefensiveEquipment());
-        player.increasesAttack(2);
+        System.out.println("<===== Surprise - MagicLightening (+2) =============================>\n"
+                + this.toString());
+
+       addEquipment(player);
     }
 
     @Override
     public String toString() {
-        return "magicLightning\n" + getAttackLevel();
+        return super.toString();
     }
 }

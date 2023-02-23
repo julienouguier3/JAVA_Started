@@ -43,7 +43,7 @@ public class CasesList {
                     list.add(new BigPotion("BigPotion", 5));
                 }
                 case 5, 19, 26,30, 47 -> {
-                    list.add(new Sledgehammer("Sledgehammer", 3));
+                    list.add(new Sledgehammer("Sledgehammer"));
 
                 }
                 case 7, 22, 45, 56 -> {
@@ -54,7 +54,7 @@ public class CasesList {
                     list.add(new magicLightning("magicLightning", 2));
 
                 }
-                default -> list.add(new EmptyCase("{----}"));
+                default -> list.add(new EmptyCase());
 
             }
         }

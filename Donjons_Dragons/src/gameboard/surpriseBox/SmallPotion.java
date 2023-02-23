@@ -14,10 +14,18 @@ public class SmallPotion extends Philter implements Case {
 
     /**
      * add life to player
+     *
      * @param player
      */
     @Override
     public void startAction(Player player) {
-     player.addLife(2);
+        System.out.println("===== Surprise - Small Potion (+2) =============================\n" +
+                this.toString());
+        player.addLife(2);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

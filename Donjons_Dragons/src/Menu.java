@@ -7,6 +7,8 @@ import gameboard.cases.CasesList;
 import offensiveEquipment.Spell;
 import offensiveEquipment.Weapon;
 import personnages.Player;
+import personnages.Warrior;
+import personnages.Wizard;
 
 import java.util.Scanner;
 
@@ -84,19 +86,15 @@ public class Menu {
     }
 
     private void startGame() {
-
-        try {
-            while (true) {
-                this.game.playTurn();
-            }
-        } catch (PersonnageHorsPlateauException e) {
-
+        while (this.game.getPlayerPosition() < Game.NB_CASE) {
+            this.game.playTurn();
         }
-
-        // the game is finish we create a new one and return to the main menu
-        System.out.println("End Game ...\n");
+        System.out.println("\nEnd Game ...\n");
         this.game = new Game();
     }
+
+    // the game is finish we create a new one and return to the main menu
+
 
     /**
      * Display a menu to permit update of an existing player
@@ -131,16 +129,19 @@ public class Menu {
             switch (choice) {
                 case 1 -> {
                     correct = true;
-                    DefensiveEquipment armor = new Shield("Training armor", 3);
-                    OffensiveEquipment sword = new Weapon("Training sword", 1);
-                    player = new Player(name, 10, 10, "warrior", armor, sword) {
+                    DefensiveEquipment armor = new Shield("helmet", 1);
+                    OffensiveEquipment sword = new Weapon("knife", 2);
+                    player = new Warrior(name, 6, 5, "warrior", armor, sword) {
                     };
                 }
                 case 2 -> {
+                    /*
+                    instance a wizard with specific attributs
+                     */
                     correct = true;
                     DefensiveEquipment armor = new Philter("Cloak", 1);
-                    OffensiveEquipment spell = new Spell("Spark", 3);
-                    player = new Player(name, 6, 15, "wizard", armor, spell) {
+                    OffensiveEquipment spell = new Spell("Spark", 2);
+                    player = new Wizard(name, 4, 10, "wizard", armor, spell) {
                     };
                 }
                 default -> correct = false;

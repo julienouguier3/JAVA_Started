@@ -33,22 +33,24 @@ public class Game {
      *
      * @throws PersonnageHorsPlateauException
      */
-    public void playTurn() throws PersonnageHorsPlateauException {
-
-        System.out.println("<===== Round " + number++ + " =====>");
-        this.isFinished();
-        System.out.println(this.toString());
-        System.out.println(" You launch the dice [°]");
-        int moves = this.dice.throwDice();
-        // and advance is player accordingly
-        infoPlayer();
-        System.out.printf(" You move %d cases forward", moves);
-        System.out.println();
-        this.playerPosition += moves;
-        System.out.printf(this.toString());
-        Case cases = gameboard.getList().get(playerPosition);
-        cases.startAction(this.player);
-
+    public void playTurn() {
+        try {
+            System.out.println("\n<===== Round " + number++ + " =====>");
+            System.out.println(this.toString());
+            System.out.println(" You launch the dice \uD83C\uDFB2");
+            int moves = this.dice.throwDice();
+            // and advance is player accordingly
+            System.out.printf(" You move %d cases forward", moves);
+            this.playerPosition += moves;
+            isFinished();
+            infoPlayer();
+            System.out.println(this.toString());
+            Case cases = gameboard.getList().get(playerPosition);
+            cases.startAction(this.player);
+        } catch (PersonnageHorsPlateauException e) {
+            this.playerPosition = NB_CASE;
+            System.out.println("\n"+"<===== GG ! You Win ! =====>");
+        }
     }
 
 
@@ -69,7 +71,7 @@ public class Game {
     }
 
     public void isFinished() throws PersonnageHorsPlateauException {
-        if (this.playerPosition > NB_CASE) {
+        if (this.playerPosition >= NB_CASE) {
             throw new PersonnageHorsPlateauException();
         }
     }
@@ -98,6 +100,14 @@ public class Game {
 
     @Override
     public String toString() {
-        return "\n---- Player's position : [" + playerPosition + "/" + NB_CASE + " ] ----"+"\n" + getGameboard();
+        return "\nPlayer's position : [ " + playerPosition + "/" + NB_CASE + " ] " + "\n" + getGameboard();
+    }
+
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(int playerPosition) {
+        this.playerPosition = playerPosition;
     }
 }

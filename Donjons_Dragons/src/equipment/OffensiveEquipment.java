@@ -1,5 +1,8 @@
 package equipment;
 
+import personnages.Player;
+import personnages.Warrior;
+
 import java.util.Objects;
 
 /**
@@ -24,6 +27,12 @@ public abstract class OffensiveEquipment {
         this.attackLevel = attackLevel;
     }
 
+
+
+
+    /*
+    Getter and setter
+     */
     public String getName() {
         return name;
     }
@@ -32,12 +41,6 @@ public abstract class OffensiveEquipment {
         return attackLevel;
     }
 
-    @Override
-    public String toString() {
-        return name +
-                ", attackLevel == " + attackLevel;
-
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -51,4 +54,6 @@ public abstract class OffensiveEquipment {
     public int hashCode() {
         return Objects.hash(name, attackLevel);
     }
+
+
 }
