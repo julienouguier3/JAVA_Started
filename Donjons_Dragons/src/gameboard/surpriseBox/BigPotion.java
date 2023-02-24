@@ -12,13 +12,13 @@ public class BigPotion extends Philter implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("===== Surprise - Big Potion (+5) =============================\n"
+        System.out.println("======= Surprise - Big Potion (+5) =======\n"
     +this.toString());
     player.addLife(5);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "\n"+super.toString();
     }
 }

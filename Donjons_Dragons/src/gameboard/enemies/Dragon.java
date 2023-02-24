@@ -11,11 +11,6 @@ public class Dragon extends Enemies implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("||============ Player ==============||         \n"
-                + "||-> life : " + player.getLife()
-                + " -> attack : " + player.getAttack() + "                  || "
-                +this
-        );
         startFighting(player);
     }
 

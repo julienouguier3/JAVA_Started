@@ -78,7 +78,7 @@ abstract public class Player {
     }
 
     public void attack(Enemies enemies) {
-        enemies.setLife(this.getAttack()-enemies.getLife());
+        enemies.setLife(enemies.getLife()-this.getAttack());
 
     }
 

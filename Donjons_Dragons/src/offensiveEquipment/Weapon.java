@@ -1,14 +1,13 @@
 package offensiveEquipment;
 
 import equipment.OffensiveEquipment;
-import gameboard.cases.CasesList;
 import personnages.Player;
 import personnages.Warrior;
 
 
 public class Weapon extends OffensiveEquipment {
 
-    private CasesList casesList;
+
     public Weapon(String name, int attackLevel) {
         //Call the constructor of the parent class OffensiveEquipment
         super(name, attackLevel);
@@ -17,7 +16,7 @@ public class Weapon extends OffensiveEquipment {
 
     /**
      * character is compatible with this equipment and the current equipment is less advantageous than the new one.
-     * @param player
+     * @param player : retrieve info from the Player class
      */
     public void addEquipment(Player player){
 

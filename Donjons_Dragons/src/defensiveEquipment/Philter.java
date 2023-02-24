@@ -13,6 +13,6 @@ public class Philter extends DefensiveEquipment {
 
     @Override
     public String toString() {
-        return "[ "+super.getName()+ ", level : +"+ super.getLevel();
+        return "[ "+super.getName()+ ", level : "+ super.getLevel()+ " ]";
     }
 }

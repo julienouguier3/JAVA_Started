@@ -16,15 +16,22 @@ abstract public class Enemies {
     }
 
     public void attack(Player player) {
-        player.setLife(this.getAttack()-player.getLife());
+        player.setLife(player.getLife() - this.getAttack());
 
     }
+
     public void startFighting(Player player) {
+        System.out.println("||============ Player ==============||\n"
+                + "||-> life : " + player.getLife()
+                + " -> attack : " + player.getAttack() + "       ||"
+                + "\n"
+        +this);//acts on the intanciated class
+
         player.attack(this);
-        if (this.life == 0) {
+        if (this.life <= 0) {
             System.out.println("Won Battle");
         } else {
-        this.attack(player);
+            this.attack(player);
         }
     }
 
@@ -53,8 +60,7 @@ abstract public class Enemies {
     @Override
     public String toString() {
         return "||-> life : " + life
-                + " -> attack : " + attack + "         ||";
-
+                + " -> attack : " + attack + "        ||";
 
 
     }

@@ -40,10 +40,10 @@ public class Game {
             System.out.println(" You launch the dice \uD83C\uDFB2");
             int moves = this.dice.throwDice();
             // and advance is player accordingly
-            System.out.printf(" You move %d cases forward", moves);
+            System.out.printf(" You move %d cases forward\n", moves);
             this.playerPosition += moves;
-            isFinished();
             infoPlayer();
+            isFinished();
             System.out.println(this.toString());
             Case cases = gameboard.getList().get(playerPosition);
             cases.startAction(this.player);
@@ -55,11 +55,14 @@ public class Game {
 
 
     public void infoPlayer() {
-        if (scanner.nextLine().equals("h")) {
-            System.out.println(getPlayer());
-        } else {
-            scanner.nextLine();
+        String input = scanner.nextLine();
+        while (!input.equals("")){
+            if (input.equals("h")){
+                System.out.println(getPlayer());
+            }
+            input = scanner.nextLine();
         }
+
     }
 
     public boolean hasPlayer() {
