@@ -2,7 +2,6 @@ import defensiveEquipment.Philter;
 import defensiveEquipment.Shield;
 import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
-import exceptions.PersonnageHorsPlateauException;
 import gameboard.cases.CasesList;
 import offensiveEquipment.Spell;
 import offensiveEquipment.Weapon;
@@ -30,8 +29,9 @@ public class Menu {
     }
 
     public void run() {
+
         while (!this.exit) {
-            System.out.println("Bonjour ! ");
+            System.out.println("Bonjour ! 📜 ");
             if (this.game.hasPlayer()) {
                 System.out.println(" 1 - Update player");
                 System.out.println(" 2 - Delete player");
@@ -86,7 +86,7 @@ public class Menu {
     }
 
     private void startGame() {
-        while (this.game.getPlayerPosition() < Game.NB_CASE) {
+        while (this.game.getPlayer().getPlayerPosition() < Game.NB_CASE) {
             this.game.playTurn();
         }
         System.out.println("\nEnd Game ...\n");
@@ -122,8 +122,8 @@ public class Menu {
 
         do {
             System.out.println("<===== Choose class =====>");
-            System.out.println(" 1 - Warrior");
-            System.out.println(" 2 - Wizard");
+            System.out.println(" 1 - Warrior \uD83E\uDD77");
+            System.out.println(" 2 - Wizard \uD83E\uDDD9\uD83C\uDFFB\u200D♂️");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -131,7 +131,7 @@ public class Menu {
                     correct = true;
                     DefensiveEquipment armor = new Shield("helmet", 1);
                     OffensiveEquipment sword = new Weapon("knife", 2);
-                    player = new Warrior(name, 6, 5, "warrior", armor, sword) {
+                    player = new Warrior(name, 6, 5, "warrior", armor, sword, 0) {
                     };
                 }
                 case 2 -> {
@@ -141,7 +141,7 @@ public class Menu {
                     correct = true;
                     DefensiveEquipment armor = new Philter("Cloak", 1);
                     OffensiveEquipment spell = new Spell("Spark", 2);
-                    player = new Wizard(name, 4, 10, "wizard", armor, spell) {
+                    player = new Wizard(name, 4, 10, "wizard", armor, spell, 0) {
                     };
                 }
                 default -> correct = false;

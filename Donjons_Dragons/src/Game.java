@@ -13,14 +13,12 @@ public class Game {
 
     private final Dice dice;
 
-    private int playerPosition;
-    private CasesList gameboard;
+      private CasesList gameboard;
     private final Scanner scanner;
     private int number;
 
     public Game() {
         this.player = null;
-        this.playerPosition = 0;
         this.dice = new Dice();
         this.gameboard = new CasesList();
         this.scanner = new Scanner(System.in);
@@ -34,21 +32,23 @@ public class Game {
      * @throws PersonnageHorsPlateauException
      */
     public void playTurn() {
-        try {
+        try { //display string + throw dice
             System.out.println("\n<===== Round " + number++ + " =====>");
             System.out.println(this.toString());
             System.out.println(" You launch the dice \uD83C\uDFB2");
             int moves = this.dice.throwDice();
-            // and advance is player accordingly
+            //move player
             System.out.printf(" You move %d cases forward\n", moves);
-            this.playerPosition += moves;
+           player.move(moves);
+            //exception
             infoPlayer();
             isFinished();
             System.out.println(this.toString());
-            Case cases = gameboard.getList().get(playerPosition);
+            //retrieves player position + run method
+            Case cases = gameboard.getList().get(player.getPlayerPosition());
             cases.startAction(this.player);
         } catch (PersonnageHorsPlateauException e) {
-            this.playerPosition = NB_CASE;
+            this.player.setPlayerPosition(NB_CASE);
             System.out.println("\n"+"<===== GG ! You Win ! =====>");
         }
     }
@@ -74,7 +74,7 @@ public class Game {
     }
 
     public void isFinished() throws PersonnageHorsPlateauException {
-        if (this.playerPosition >= NB_CASE) {
+        if (this.player.getPlayerPosition() >= NB_CASE) {
             throw new PersonnageHorsPlateauException();
         }
     }
@@ -82,7 +82,7 @@ public class Game {
     /**
      * getter and setter
      *
-     * @return player
+     * @return player, gameboard
      */
     public Player getPlayer() {
         return player;
@@ -103,14 +103,8 @@ public class Game {
 
     @Override
     public String toString() {
-        return "\nPlayer's position : [ " + playerPosition + "/" + NB_CASE + " ] " + "\n" + getGameboard();
+        return "\nPlayer's position : [ " + this.player.getPlayerPosition() + "/" + NB_CASE + " ] " + "\n" + getGameboard();
     }
 
-    public int getPlayerPosition() {
-        return playerPosition;
-    }
 
-    public void setPlayerPosition(int playerPosition) {
-        this.playerPosition = playerPosition;
-    }
 }

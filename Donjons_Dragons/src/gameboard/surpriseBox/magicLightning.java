@@ -11,7 +11,7 @@ public class magicLightning extends Spell implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("<===== Surprise - MagicLightening (+2) =============================>\n"
+        System.out.println("<===== \uD83D\uDD25 - MagicLightening (+2) =============================>\n"
                 + this.toString());
 
        addEquipment(player);

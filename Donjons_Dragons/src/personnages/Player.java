@@ -29,6 +29,7 @@ abstract public class Player {
     private DefensiveEquipment defensiveEquipment;
 
     private OffensiveEquipment offensiveEquipment;
+    private int playerPosition;
 
 
     /**
@@ -42,7 +43,7 @@ abstract public class Player {
         //Instance Child Class Shield and Weapon
         this.defensiveEquipment = new Shield("Cloak", 1);
         this.offensiveEquipment = new Weapon("Staff", 1);
-
+        this.playerPosition = 0;
     }
 
     /**
@@ -55,13 +56,14 @@ abstract public class Player {
      * @param defensiveEquipment defensive equipment the player is equipped with
      * @param offensiveEquipment offensive equipment the player is equipped with
      */
-    public Player(String name, int life, int attack, String type, DefensiveEquipment defensiveEquipment, OffensiveEquipment offensiveEquipment) {
+    public Player(String name, int life, int attack, String type, DefensiveEquipment defensiveEquipment, OffensiveEquipment offensiveEquipment, int playerPosition) {
         this.name = name;
         this.archetype = type;
         this.life = life;
         this.attack = attack;
         this.defensiveEquipment = defensiveEquipment;
         this.offensiveEquipment = offensiveEquipment;
+        this.playerPosition = playerPosition;
 
     }
 
@@ -78,8 +80,12 @@ abstract public class Player {
     }
 
     public void attack(Enemies enemies) {
-        enemies.setLife(enemies.getLife()-this.getAttack());
+        enemies.setLife(enemies.getLife() - this.getAttack());
 
+    }
+
+    public void move(int move){
+        this.playerPosition += move;
     }
 
 
@@ -136,6 +142,14 @@ abstract public class Player {
         this.offensiveEquipment = offensiveEquipment;
     }
 
+
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(int playerPosition) {
+        this.playerPosition = playerPosition;
+    }
 
     @Override
     public String toString() {

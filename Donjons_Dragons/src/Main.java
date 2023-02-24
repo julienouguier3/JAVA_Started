@@ -1,7 +1,5 @@
 
 
-import personnages.Player;
-
 import java.util.Scanner;
 
 public class Main {
