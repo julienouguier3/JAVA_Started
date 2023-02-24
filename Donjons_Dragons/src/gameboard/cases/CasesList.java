@@ -1,8 +1,6 @@
 package gameboard.cases;
 
-import gameboard.enemies.Dragon;
-import gameboard.enemies.Goblin;
-import gameboard.enemies.Witch;
+import gameboard.enemies.*;
 import gameboard.surpriseBox.*;
 
 import java.util.ArrayList;
@@ -53,6 +51,12 @@ public class CasesList {
                 case 17, 29, 37, 68 -> {
                     list.add(new magicLightning("magicLightning", 2));
 
+                }
+                case 21, 35, 53 ->{
+                    list.add(new EvilSpirits(6,10 ));
+                }
+                case 18, 33, 55 ->{
+                    list.add(new Orcs(5,15));
                 }
                 default -> list.add(new EmptyCase());
 

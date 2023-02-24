@@ -11,7 +11,7 @@ public class Fireball extends Spell implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("<===== Surprise - " +this.getName()+ " (+7) ===========================>\n"
+        System.out.println("<===== \uD83D\uDD25 - " +this.getName()+ " (+7) ===========================>\n"
     +this.toString());
        addEquipment(player);
     }

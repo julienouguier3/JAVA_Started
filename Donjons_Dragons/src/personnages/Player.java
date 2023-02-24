@@ -3,11 +3,9 @@ package personnages;
 import defensiveEquipment.Shield;
 import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
-import gameboard.cases.Case;
-import gameboard.cases.CasesList;
 import gameboard.enemies.Enemies;
 import offensiveEquipment.Weapon;
-
+import personnages.Warrior;
 
 import java.awt.*;
 import java.util.Objects;
@@ -84,9 +82,10 @@ abstract public class Player {
 
     }
 
-    public void move(int move){
+    public void move(int move) {
         this.playerPosition += move;
     }
+
 
 
     /**
@@ -153,14 +152,13 @@ abstract public class Player {
 
     @Override
     public String toString() {
-        return "\n======== Player ====================================================  " +
-                "\n[ Name : " + name + " ]" +
+        return  "\n[ Name : " + name + " ]" +
                 "\n[ Life : " + life + " ]" +
                 "\n[ Attack : " + attack + " ]" +
                 "\n[ Archetype : " + archetype + " ]" +
                 "\n[ Defensive Equipment : " + defensiveEquipment + " ]" +
                 "\n[ Offensive Equipment : " + offensiveEquipment + " ]" + "\n" +
-                "=====================================================================";
+                "========================================================================";
     }
 
     @Override

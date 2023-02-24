@@ -3,20 +3,21 @@ package gameboard.enemies;
 import gameboard.cases.Case;
 import personnages.Player;
 
-public class Witch extends Enemies implements Case {
-
-    public Witch(int attack, int life) {
+public class Orcs extends Enemies implements Case {
+    public Orcs(int attack, int life) {
         super(attack, life);
     }
 
     @Override
     public void startAction(Player player) {
-        startFighting(player);
+        if (player.getArchetype().equals("Warrior")){
+            this.startFighting(player);
+        }
     }
 
     @Override
     public String toString() {
-        return "\n||============ Witch "+"\uD83E\uDDD9\uD83C\uDFFE\u200D♀️"+" ===============||\n"
+        return "\n||============ Orcs "+ "\uD83E\uDDCC"+ " =============||\n"
                 + super.toString();
     }
 }

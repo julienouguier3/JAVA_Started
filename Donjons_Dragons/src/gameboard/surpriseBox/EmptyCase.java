@@ -9,7 +9,7 @@ public class EmptyCase implements Case {
 
 
     public EmptyCase() {
-        this.empty = " (づ｡◕‿‿◕｡)づ ";
+        this.empty = " (づ｡◕‿‿◕｡)づ \uD83D\uDC8E";
 
     }
 

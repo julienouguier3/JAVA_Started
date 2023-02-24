@@ -12,7 +12,7 @@ public class BigPotion extends Philter implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("======= Surprise - Big Potion (+5) =======\n"
+        System.out.println("======= ⚗️ - " + this.getName() +"(+2) =======\n"
     +this.toString());
     player.addLife(5);
     }

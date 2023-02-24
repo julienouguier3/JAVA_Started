@@ -129,9 +129,9 @@ public class Menu {
             switch (choice) {
                 case 1 -> {
                     correct = true;
-                    DefensiveEquipment armor = new Shield("helmet", 1);
-                    OffensiveEquipment sword = new Weapon("knife", 2);
-                    player = new Warrior(name, 6, 5, "warrior", armor, sword, 0) {
+                    DefensiveEquipment armor = new Shield("Helmet", 1);
+                    OffensiveEquipment sword = new Weapon("Knife", 2);
+                    player = new Warrior(name, 6, 5, "Warrior", armor, sword, 0) {
                     };
                 }
                 case 2 -> {
@@ -141,7 +141,7 @@ public class Menu {
                     correct = true;
                     DefensiveEquipment armor = new Philter("Cloak", 1);
                     OffensiveEquipment spell = new Spell("Spark", 2);
-                    player = new Wizard(name, 4, 10, "wizard", armor, spell, 0) {
+                    player = new Wizard(name, 4, 10, "Wizard", armor, spell, 0) {
                     };
                 }
                 default -> correct = false;

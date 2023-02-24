@@ -16,7 +16,7 @@ public class Dragon extends Enemies implements Case {
 
     @Override
     public String toString() {
-        return "\n||============ Dragon ==============||\n"
+        return "\n||============ Dragon" +"\uD83D\uDC09" + " ===========||\n"
                 + super.toString()
                 ;
     }

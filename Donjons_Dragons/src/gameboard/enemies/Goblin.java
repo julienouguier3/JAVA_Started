@@ -16,7 +16,7 @@ public class Goblin extends Enemies implements Case {
 
     @Override
     public String toString() {
-        return "\n||============ Goblin ==============||\n"
+        return "\n||============ Goblin "+ "\uD83D\uDC79"+ " =============||\n"
                 + super.toString();
     }
 }

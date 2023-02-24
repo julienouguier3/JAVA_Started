@@ -2,6 +2,7 @@ package gameboard.enemies;
 
 import gameboard.cases.CasesList;
 import personnages.Player;
+import personnages.Warrior;
 
 import java.util.Scanner;
 
@@ -24,14 +25,15 @@ abstract public class Enemies {
     }
 
     public void startFighting(Player player) {
-        System.out.println("||============ Player ==============||\n"
-                + "||-> life : " + player.getLife()
-                + " -> attack : " + player.getAttack() + "       ||"
+        System.out.println("{{ --------------- ⚔️ --------------- }}\n"
+                +"||============ "+ player.getArchetype() +" ===============||\n"
+                + "||  -> life : " + player.getLife()
+                + "   -> attack : " + player.getAttack() + "         ||"
                 + "\n"
                 + this);//acts on the intanciated class
         player.attack(this);
         if (this.getLife() <= 0) {
-            System.out.println("Won battle");
+            System.out.println("\n \uD83C\uDFC6 Won battle");
         } else {
             this.attack(player);
             this.choiceOfFight(player);
@@ -54,6 +56,8 @@ abstract public class Enemies {
         }
 
     }
+
+
 
 
     /**
