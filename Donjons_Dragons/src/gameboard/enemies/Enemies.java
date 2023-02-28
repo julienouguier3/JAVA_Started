@@ -28,7 +28,7 @@ abstract public class Enemies {
         System.out.println("{{ --------------- ⚔️ --------------- }}\n"
                 +"||============ "+ player.getArchetype() +" ===============||\n"
                 + "||  -> life : " + player.getLife()
-                + "   -> attack : " + player.getAttack() + "         ||"
+                + "   -> attack : " + player.getAttack() + "       ||"
                 + "\n"
                 + this);//acts on the intanciated class
         player.attack(this);
@@ -56,8 +56,6 @@ abstract public class Enemies {
         }
 
     }
-
-
 
 
     /**
