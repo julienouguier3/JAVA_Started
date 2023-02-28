@@ -11,7 +11,12 @@ public class Dragon extends Enemies implements Case {
 
     @Override
     public void startAction(Player player) {
+        int pAttack = player.getAttack();
+        if (player.getOffensiveEquipment().getName().equals("Bow")){
+            player.setAttack(pAttack+2);
+        }
         startFighting(player);
+        player.setAttack(pAttack);
     }
 
     @Override

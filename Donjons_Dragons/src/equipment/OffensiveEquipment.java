@@ -34,28 +34,20 @@ public abstract class OffensiveEquipment {
     }
 
     public void addEquipment(Player player) {
-
-        player.setAttack(player.getAttack() + this.getAttackLevel());
-        System.out.println("-> new offensive equipment : " + this.getName());
-        player.setOffensiveEquipment(this);
-
-
-    }
-
-    public void switchWeapon(Player player) {
-        if (this.getAttackLevel() > player.getOffensiveEquipment().getAttackLevel()) {
-            addEquipment(player);
-        }
-    }
-
-    public void specialEquipment(Player player) {
         System.out.println("1 - Take || 2 - Leave");
         int input = scanner.nextInt();
-        if (input == 1) {
-            addEquipment(player);
-        } else if (input == 2) {
-            System.out.println("Rest the current equipment " + this.getName());
+
+        switch (input) {
+            case 1 -> {
+                player.setAttack(player.getAttack() + this.getAttackLevel());
+                System.out.println("-> new offensive equipment : " + this.getName());
+                player.setOffensiveEquipment(this);
+
+            }
+
+            case 2 -> System.out.println("Keep the current equipment ");
         }
+
     }
 
 

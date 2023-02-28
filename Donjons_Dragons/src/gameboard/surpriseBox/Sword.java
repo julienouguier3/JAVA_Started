@@ -12,20 +12,24 @@ public class Sword extends Weapon implements Case {
 
     @Override
     public void startAction(Player player) {
-        System.out.println("================ " +"\uD83D\uDDE1️ " + this.getName() + " (+5) =========================\n"
+        System.out.println("================ " + "\uD83D\uDDE1️ " + this.getName() + " (+5) =========================\n"
                 + "-> current equipment : " + player.getOffensiveEquipment()
-                + "\n" + this.toString()
+                + "\n-> propose equipment :"
+                 + this
         );
-        addEquipment(player);
+        if (player.getArchetype().equals("Warrior")) {
+            addEquipment(player);
+        } else {
+            System.out.println("It's an equipment of Warrior");
+        }
 
     }
 
     @Override
     public String toString() {
-        return "-> proposed weapon : "
-                + super.toString()
+        return super.toString();
 
-                ;
+
 
     }
 }

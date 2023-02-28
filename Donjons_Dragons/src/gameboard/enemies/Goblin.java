@@ -12,7 +12,9 @@ public class Goblin extends Enemies implements Case {
     @Override
     public void startAction(Player player) {
         this.startFighting(player);
+
     }
+
 
     @Override
     public String toString() {

@@ -34,7 +34,7 @@ public class Game {
     public void playTurn() {
         try { //display string + throw dice
             System.out.println("\n{{----------Round " + number++ + " ----------}}");
-            System.out.println(this.toString());
+            System.out.println(this);
             System.out.println(" You launch the dice \uD83C\uDFB2");
             int moves = this.dice.throwDice();
             //move player
@@ -45,11 +45,13 @@ public class Game {
             isFinished();
             System.out.println(this.toString());
             //retrieves player position + run method
+
             Case cases = gameboard.getList().get(player.getPlayerPosition());
             cases.startAction(this.player);
         } catch (PersonnageHorsPlateauException e) {
             this.player.setPlayerPosition(NB_CASE);
             System.out.println("\n"+"<===== \uD83C\uDFF0  ! You Win ! =====>");
+
         }
     }
 

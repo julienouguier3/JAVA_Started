@@ -5,10 +5,9 @@ import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
 import gameboard.enemies.Enemies;
 import offensiveEquipment.Weapon;
-import personnages.Warrior;
 
-import java.awt.*;
 import java.util.Objects;
+import java.util.Scanner;
 
 /**
  * Model for a player
@@ -28,6 +27,7 @@ abstract public class Player {
 
     private OffensiveEquipment offensiveEquipment;
     private int playerPosition;
+    private boolean buff;
 
 
     /**
@@ -42,6 +42,7 @@ abstract public class Player {
         this.defensiveEquipment = new Shield("Cloak", 1);
         this.offensiveEquipment = new Weapon("Staff", 1);
         this.playerPosition = 0;
+        this.buff = false;
     }
 
     /**
@@ -62,6 +63,7 @@ abstract public class Player {
         this.defensiveEquipment = defensiveEquipment;
         this.offensiveEquipment = offensiveEquipment;
         this.playerPosition = playerPosition;
+        this.buff = false;
 
     }
 
@@ -76,16 +78,30 @@ abstract public class Player {
         System.out.println("-> life after : " + this.life);
 
     }
+/*    public void inventory(){
+        for (){
 
+        }
+    }*/
+
+    /**
+     *
+     * @param enemies
+     */
     public void attack(Enemies enemies) {
-        enemies.setLife(enemies.getLife() - this.getAttack());
+        if (this.buff) {
+            System.out.println("Player damage : " + this.attack
+                    + "\nDamage x2 : (" + this.attack * 2 + ")");
+            enemies.setLife(enemies.getLife() - (this.getAttack() * 2));
+        } else {
+            enemies.setLife(enemies.getLife() - this.getAttack());
+        }
 
     }
 
     public void move(int move) {
         this.playerPosition += move;
     }
-
 
 
     /**
@@ -141,6 +157,13 @@ abstract public class Player {
         this.offensiveEquipment = offensiveEquipment;
     }
 
+    public boolean isBuff() {
+        return buff;
+    }
+
+    public void setBuff(boolean buff) {
+        this.buff = buff;
+    }
 
     public int getPlayerPosition() {
         return playerPosition;
@@ -152,7 +175,7 @@ abstract public class Player {
 
     @Override
     public String toString() {
-        return  "\n[ Name : " + name + " ]" +
+        return "\n[ Name : " + name + " ]" +
                 "\n[ Life : " + life + " ]" +
                 "\n[ Attack : " + attack + " ]" +
                 "\n[ Archetype : " + archetype + " ]" +

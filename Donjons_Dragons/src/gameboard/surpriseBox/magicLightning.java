@@ -12,9 +12,15 @@ public class magicLightning extends Spell implements Case {
     @Override
     public void startAction(Player player) {
         System.out.println("<===== ⚡ - MagicLightening (+2) =============================>\n"
+                + "-> current spell : " + player.getOffensiveEquipment()
+                + "-> propose equipment :" + this.getName()
                 + this.toString());
 
-       addEquipment(player);
+        if (player.getArchetype().equals("Wizard")) {
+            addEquipment(player);
+        } else {
+            System.out.println("It's an equipment of Wizard");
+        }
     }
 
     @Override

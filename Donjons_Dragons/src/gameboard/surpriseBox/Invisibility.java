@@ -13,16 +13,17 @@ public class Invisibility extends Spell implements Case {
 
     public void startAction(Player player) {
         System.out.println("<=====  - Invisibility =============================>\n"
-                + this.toString());
+                + "-> current equipment : " + player.getOffensiveEquipment()
+                + "\n-> propose equipment :"
+                + this);
         if (player.getArchetype().equals("Wizard")) {
-            specialEquipment(player);
+            addEquipment(player);
             System.out.println(this);
         }
     }
 
     @Override
     public String toString() {
-        return "Invisibility " +
-                super.toString();
+        return super.toString();
     }
 }

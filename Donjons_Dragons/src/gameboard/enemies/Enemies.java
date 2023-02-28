@@ -32,7 +32,9 @@ abstract public class Enemies {
                 + "\n"
                 + this);//acts on the intanciated class
         player.attack(this);
+
         if (this.getLife() <= 0) {
+            player.setBuff(false);
             System.out.println("\n \uD83C\uDFC6 Won battle");
         } else {
             this.attack(player);
@@ -49,9 +51,12 @@ abstract public class Enemies {
             input = scanner.nextInt();
         }
         if (input == 1) {
+            player.setBuff(false);
             player.move(-2);
+
         } else if (input == 2){
             startFighting(player);
+
 
         }
 
@@ -83,7 +88,7 @@ abstract public class Enemies {
     @Override
     public String toString() {
         return "||-> life : " + life
-                + " -> attack : " + attack + "        ||";
+                + "  -> attack : " + attack + "        ||";
 
 
     }

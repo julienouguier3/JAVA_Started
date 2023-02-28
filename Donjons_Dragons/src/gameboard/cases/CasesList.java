@@ -40,7 +40,7 @@ public class CasesList {
                 case 4, 12, 25, 49, 60 -> {
                     list.add(new BigPotion("BigPotion", 5));
                 }
-                case 5, 19, 26,30, 47 -> {
+                case 5, 19, 26,30 -> {
                     list.add(new Sledgehammer("Sledgehammer"));
 
                 }
@@ -57,6 +57,15 @@ public class CasesList {
                 }
                 case 18, 33, 55 ->{
                     list.add(new Orcs(5,15));
+                }
+                case 11, 34, 47 ->{
+                    list.add(new Bow("Bow", 4));
+                }
+                case 8, 20, 39 ->{
+                    list.add(new Invisibility("Invisibility", 5));
+                }
+                case 16, 50 ->{
+                    list.add(new Thunderclap("Thunderclap",2));
                 }
                 default -> list.add(new EmptyCase());
 

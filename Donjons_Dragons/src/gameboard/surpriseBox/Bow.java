@@ -15,14 +15,17 @@ public class Bow extends Weapon implements Case {
     @Override
     public void startAction(Player player) {
         System.out.println("<===== \uD83C\uDFF9 - Bow =============================>\n"
+                + "-> current equipment : " + player.getOffensiveEquipment()
+                + "\n-> propose equipment :"
                 + this.toString());
         if (player.getArchetype().equals("Warrior")) {
-        specialEquipment(player);
-            System.out.println(this);
+            addEquipment(player);
+
 
         }
 
     }
+
 
     @Override
     public String toString() {

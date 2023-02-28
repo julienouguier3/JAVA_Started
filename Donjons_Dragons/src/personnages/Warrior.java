@@ -15,7 +15,7 @@ public class Warrior extends Player {
     @Override
     public String toString() {
         return "\n======== " + this.getArchetype() + " \uD83E\uDD77"
-                + " ========================================================="
+                + " ===================================================="
                 + super.toString();
     }
 }

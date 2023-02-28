@@ -13,18 +13,22 @@ public class Sledgehammer extends Weapon implements Case {
     public void startAction(Player player) {
         System.out.println("<================ \uD83D\uDD28 " + this.getName() + " (+5) =========================>\n"
                 + "-> current equipment : " + player.getOffensiveEquipment()
-                + "\n" + this.toString()
+                + "\n-> propose equipment :"
+                + this
         );
-        addEquipment(player);
+        if (player.getArchetype().equals("Warrior")) {
+            addEquipment(player);
+        } else {
+            System.out.println("It's an equipment of Warrior");
+        }
 
 
     }
 
     @Override
     public String toString() {
-        return "-> proposed weapon : " +
-                super.toString()
+        return super.toString();
 
-                ;
+
     }
 }

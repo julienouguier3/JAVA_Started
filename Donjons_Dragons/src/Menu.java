@@ -114,14 +114,13 @@ public class Menu {
      */
     private Player createPlayer() {
         System.out.println(this.toString());
-        System.out.println("Bonjour ! ");
         System.out.println("Type name :");
         String name = this.scanner.nextLine();
         boolean correct;
         Player player = null;
 
         do {
-            System.out.println("<===== Choose class =====>");
+            System.out.println("========== Choose your player =========");
             System.out.println(" 1 - Warrior \uD83E\uDD77");
             System.out.println(" 2 - Wizard \uD83E\uDDD9\uD83C\uDFFB\u200D♂️");
             int choice = scanner.nextInt();
@@ -153,7 +152,7 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "\n============= Menu =============  ";
+        return "\n============= \uD83C\uDFAE Menu \uD83C\uDFAE =============  ";
 
 
     }
